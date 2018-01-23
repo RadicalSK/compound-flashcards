@@ -34,6 +34,10 @@ td {
 	margin: 1em 0;
 }
 
+.hide-img img {
+	visibility: hidden;
+}
+
 .hide-img {
 	visibility: hidden;
 }
