@@ -1,0 +1,39 @@
+h2 {
+	margin: 0;
+	padding: 0.5rem;
+}
+
+table {
+	margin: auto;
+	border: 1px solid #000;
+}
+
+thead td {
+	background-color: #ddd;
+}
+
+td {
+	border: 1px solid #000;
+	padding: .25em;
+	text-align: center;
+}
+
+.bigger {
+	font-size: 200%;
+}
+
+.hidden {
+	visibility: hidden;
+}
+
+.instruction {
+	margin: 1em 0;
+}
+
+.instruction button {
+	margin: 1em 0;
+}
+
+.hide-img {
+	visibility: hidden;
+}

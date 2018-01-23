@@ -1,0 +1,36 @@
+<h2>{{title}}</h2>
+
+<div class="instruction" *ngIf="!isTestInProgress">
+	When you think you're ready, press button to start testing.<br />
+	<button (click)="toggleTest()">Start testing</button>
+</div>
+
+<table>
+	<thead>
+		<tr>
+			<td *ngFor="let colName of columnNameValues()">
+				{{colName}}
+			</td>
+		</tr>
+	</thead>
+
+	<!-- normally display all compounds -->
+	<tbody *ngIf="!isTestInProgress">
+		<tr *ngFor="let compound of compounds" app-compound-table-row
+		[compound]="compound" [columns]="columnNameKeys()" [formulaShown]="true"></tr>
+	</tbody>
+
+	<!-- if there is a test in progress, display only one compound at a time -->
+	<tbody *ngIf="isTestInProgress">
+		<tr app-compound-table-row [compound]="compounds[nextCompoundToShow]" [columns]="columnNameKeys()" [formulaShown]="formulaShown"></tr>
+	</tbody>
+</table>
+
+<div class="instruction" *ngIf="isTestInProgress">
+	Draw the missing formula on a piece of paper. When you're finished, click <i>Show formula</i> to see whether you got it right. Then click <i>Next compound</i> to show another flashcard. To finish testing and get back to the full view of compounds, click <i>Display all</i>.<br />
+	<button (click)="showFormula()">Show formula</button>
+	<button (click)="next($event.target)">Next compound</button>
+	<button (click)="toggleTest()">Display all</button>
+	<br />
+	Showing compound {{alreadyShown.length+1}} of {{compounds.length}}
+</div>
